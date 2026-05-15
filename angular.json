@@ -55,6 +55,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/Stomatology/",
               "budgets": [
                 {
                   "type": "initial",
