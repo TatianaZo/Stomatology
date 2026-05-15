@@ -35,7 +35,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'dmitry-koshkin',
     name: 'Дмитрий Кошкин',
     role: 'Директор · Главный хирург-имплантолог',
-    photo: '/images/director.png',
+    photo: 'images/director.png',
     hero: 'Директор клиники. Персонаж и все его достижения созданы для демонстрационного сайта.',
     bio: 'Вымышленный герой демо-проекта Luxe Dental. «Окончил» Несуществующий институт премolarной хирургии, «практикует» сложную имплантацию и полную реабилитацию челюстей. Любит 3D-планирование и идеальные сагиттальные швы.',
     stats: [
@@ -64,7 +64,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'sofia-melnikova',
     name: 'София Мельникова',
     role: 'Управляющий директор · Клиентский сервис',
-    photo: '/images/sofia-melnikova.png',
+    photo: 'images/sofia-melnikova.png',
     hero: 'Создаёт атмосферу тихой роскоши. Полностью вымышленный персонаж.',
     bio: 'Управляющий директор Luxe Dental. Отвечает за VIP-сервис, гостеприимство и то, чтобы каждый пациент чувствовал себя в бутик-отеле, а не в поликлинике.',
     stats: [
@@ -86,7 +86,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'elena-vorontsova',
     name: 'Елена Воронцова',
     role: 'Врач-терапевт · Эстетист',
-    photo: '/images/elena-vorontsova.png',
+    photo: 'images/elena-vorontsova.png',
     hero: 'Мастер микроскопной терапии и эстетики. Вымышленный специалист.',
     bio: 'Терапевт и эстетист. «Специализируется» на реставрациях под микроскопом, винирах и безболезненном лечении кариеса в атмосфере спа.',
     stats: [
@@ -108,7 +108,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'artem-sokolov',
     name: 'Артемида Соколова',
     role: 'Хирург-имплантолог',
-    photo: '/images/artemida-sokolova.png',
+    photo: 'images/artemida-sokolova.png',
     hero: 'Специалист по сложной имплантации. Персонаж демо-сайта.',
     bio: 'Хирург-имплантолог. «Провела» более 1200 установок имплантов и 80 полных реабилитаций по легендарному протоколу All-on-Fiction-4.',
     stats: [
@@ -129,7 +129,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'mikhail-orlov',
     name: 'Михаил Орлов',
     role: 'Врач-ортопед · Протезист',
-    photo: '/images/mikhail-orlov.png',
+    photo: 'images/mikhail-orlov.png',
     hero: 'Мастер цифрового протезирования. Вымышленный ортопед.',
     bio: 'Ортопед. «Изготавливает» коронки за один визит на фрезере CEREC Fiction и проектирует полные протезы на имплантах.',
     stats: [
@@ -150,7 +150,7 @@ export const TEAM_MEMBERS: Record<string, TeamMember> = {
     slug: 'daniil-kravtsov',
     name: 'Даниил Кравцов',
     role: 'Врач-стоматолог · Эстетика',
-    photo: '/images/daniil-kravtsov.png',
+    photo: 'images/daniil-kravtsov.png',
     hero: 'Специалист по эстетическим преображениям. Вымышленный врач.',
     bio: 'Стоматолог эстетического профиля. «Создаёт» голливудские улыбки: отбеливание, виниры, художественные реставрации.',
     stats: [
