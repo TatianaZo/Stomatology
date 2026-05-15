@@ -2,6 +2,7 @@
 
 # Compiled output
 /dist
+.gh-pages-deploy/
 /tmp
 /out-tsc
 /bazel-out

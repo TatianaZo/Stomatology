@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "deploy:gh-pages": "node scripts/deploy-gh-pages.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
