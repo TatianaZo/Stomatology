@@ -1,0 +1,104 @@
+@if (member(); as m) {
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a routerLink="/">Главная</a><span>/</span><a routerLink="/team">Команда</a><span>/</span
+        ><span>{{ m.name }}</span>
+      </nav>
+      <h1>{{ m.name }}</h1>
+      <p>{{ m.hero }}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container profile-hero">
+      <div class="profile-photo" appFadeIn>
+        <img [src]="m.photo" [alt]="m.name" />
+      </div>
+      <div appFadeIn>
+        <span class="section-label">О специалисте</span>
+        <h2>{{ m.role }}</h2>
+        <p class="fictional-notice">
+          ⚠ Персонаж, биография и достижения полностью вымышлены. Не имеют отношения к реальным людям, клиникам и
+          наградам.
+        </p>
+        <p style="color: var(--text-light); font-weight: 300; margin: 1rem 0">{{ m.bio }}</p>
+        @if (m.stats.length) {
+          <div class="profile-stats">
+            @for (s of m.stats; track s.lbl) {
+              <div class="profile-stat">
+                <div class="num">{{ s.num }}</div>
+                <div class="lbl">{{ s.lbl }}</div>
+              </div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  @if (m.awards.length) {
+    <section class="section-dark" style="padding: 5rem 0">
+      <div class="container">
+        <div class="section-header" appFadeIn>
+          <span class="section-label" style="color: var(--gold)">Награды</span>
+          <h2 class="section-title">Награды</h2>
+          <p class="section-desc fictional-notice section-dark-desc">
+            Все названия наград, организаций и формулировки — плод фантазии для демо-сайта. Совпадения случайны.
+          </p>
+        </div>
+        <div class="awards-wall">
+          @for (a of m.awards; track a.title) {
+            <article class="award-card" appFadeIn>
+              <p class="award-year">{{ a.year }}</p>
+              <h3>{{ a.title }}</h3>
+              <p>{{ a.desc }}</p>
+              <p class="award-org">{{ a.org }}</p>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  @if (m.timeline.length) {
+    <section class="section-beige">
+      <div class="container">
+        <div class="section-header" appFadeIn>
+          <span class="section-label">Опыт</span>
+          <h2 class="section-title">Профессиональный путь</h2>
+        </div>
+        <div class="timeline">
+          @for (t of m.timeline; track t.title) {
+            <article class="timeline-item" appFadeIn>
+              <span class="timeline-dot"></span>
+              <p class="timeline-year">{{ t.year }}</p>
+              <div class="timeline-content">
+                <h3>{{ t.title }}</h3>
+                <p>{{ t.desc }}</p>
+                @if (t.org) {
+                  <p class="award-org">{{ t.org }}</p>
+                }
+              </div>
+            </article>
+          }
+        </div>
+      </div>
+    </section>
+  }
+
+  <section class="cta-band">
+    <div class="container" appFadeIn>
+      <h2>Записаться к {{ m.name.split(' ')[0] }}</h2>
+      <p>Демо-сайт — запись имитируется формой на странице контактов</p>
+      <a routerLink="/contacts" class="btn">Записаться</a>
+    </div>
+  </section>
+} @else {
+  <section>
+    <div class="container" style="padding: 4rem 0">
+      <h2>Сотрудник не найден</h2>
+      <a routerLink="/team">← К команде</a>
+    </div>
+  </section>
+}

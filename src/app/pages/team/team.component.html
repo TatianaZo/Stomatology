@@ -1,0 +1,40 @@
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a routerLink="/">Главная</a><span>/</span><span>Команда</span></nav>
+    <h1>Наша команда</h1>
+    <p>Шесть экспертов. Нажмите на карточку, чтобы открыть профиль.</p>
+    <p class="fictional-notice" style="max-width: 640px; margin: 1.5rem auto 0">
+      Все имена, фото, биографии и награды — плод фантазии для демо-сайта. Не связаны с реальными людьми.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="team-grid">
+      @for (m of team; track m.slug) {
+        <a [routerLink]="['/team', m.slug]" class="team-card-link" appFadeIn>
+          <article class="team-card" [class.featured]="m.featured">
+            <div class="team-photo"><img [src]="m.photo" [alt]="m.name" /></div>
+            <div class="team-info">
+              <h3>{{ m.name }}</h3>
+              <p class="team-role">{{ m.role }}</p>
+              <p>{{ m.hero }}</p>
+              <span class="profile-hint">Открыть профиль →</span>
+            </div>
+          </article>
+        </a>
+      }
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container" appFadeIn>
+    <img
+      src="/images/team.png"
+      alt="Команда Luxe Dental"
+      style="border-radius: 8px; box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12); width: 100%"
+    />
+  </div>
+</section>

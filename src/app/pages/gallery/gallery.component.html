@@ -1,0 +1,112 @@
+<section class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb">
+      <a routerLink="/">Главная</a><span>/</span><span>Фото клиники</span>
+    </nav>
+    <h1>Интерьеры клиники</h1>
+    <p>VIP-лаунж, мраморный ресепшен, цифровая диагностика и лечебные кабинеты премиум-класса.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header" appFadeIn>
+      <span class="section-label">Галерея</span>
+      <h2 class="section-title">Пространство Luxe Dental</h2>
+      <p class="section-desc">Нажмите на фото, чтобы открыть в полном размере. Стрелками можно листать снимки.</p>
+    </div>
+
+    <div class="gallery-filters" appFadeIn>
+      @for (f of filters; track f.id) {
+        <button
+          type="button"
+          class="gallery-filter-btn"
+          [class.active]="currentFilter() === f.id"
+          (click)="setFilter(f.id)"
+        >
+          {{ f.label }}
+        </button>
+      }
+    </div>
+
+    <div class="interior-gallery">
+      @for (item of visibleItems(); track item.src; let idx = $index) {
+        <button
+          type="button"
+          class="interior-card visible"
+          (click)="openLightbox(idx)"
+          [attr.aria-label]="'Открыть: ' + item.title"
+        >
+          <span class="interior-card-zoom" aria-hidden="true">+</span>
+          <img [src]="item.src" [alt]="item.title" loading="lazy" />
+          <span class="interior-card-caption">
+            <span>{{ item.label }}</span>
+            <strong>{{ item.title }}</strong>
+          </span>
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container" appFadeIn>
+    <h2>Хотите увидеть клинику лично?</h2>
+    <p>Запишитесь на экскурсию и бесплатную консультацию</p>
+    <a routerLink="/contacts" class="btn">Записаться</a>
+  </div>
+</section>
+
+@if (lightboxOpen()) {
+  <div
+    class="lightbox open"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Просмотр фото"
+    (click)="closeLightbox()"
+  >
+    <button type="button" class="lightbox-close" (click)="closeLightbox(); $event.stopPropagation()" aria-label="Закрыть">
+      &times;
+    </button>
+    <div class="lightbox-stage" (click)="$event.stopPropagation()">
+      @if (visibleItems().length > 1) {
+        <button
+          type="button"
+          class="lightbox-side lightbox-side-prev"
+          (click)="step(-1)"
+          aria-label="Предыдущее фото"
+        >
+          <img class="lightbox-side-img" [src]="visibleItems()[wrapIndex(-1)].src" alt="" />
+          <span class="lightbox-side-meta">
+            <span class="lightbox-side-dir">←</span>
+            <span class="lightbox-side-title">{{ visibleItems()[wrapIndex(-1)].title }}</span>
+          </span>
+        </button>
+      }
+      <div class="lightbox-inner">
+        @if (currentItem(); as item) {
+          <img class="lightbox-img" [src]="item.src" [alt]="item.title" />
+          <p class="lightbox-caption">
+            <strong>{{ item.title }}</strong>
+            <span>{{ item.label }}</span>
+          </p>
+        }
+      </div>
+      @if (visibleItems().length > 1) {
+        <button
+          type="button"
+          class="lightbox-side lightbox-side-next"
+          (click)="step(1)"
+          aria-label="Следующее фото"
+        >
+          <img class="lightbox-side-img" [src]="visibleItems()[wrapIndex(1)].src" alt="" />
+          <span class="lightbox-side-meta">
+            <span class="lightbox-side-dir">→</span>
+            <span class="lightbox-side-title">{{ visibleItems()[wrapIndex(1)].title }}</span>
+          </span>
+        </button>
+      }
+    </div>
+    <span class="lightbox-counter">{{ lightboxIndex() + 1 }} / {{ visibleItems().length }}</span>
+  </div>
+}
